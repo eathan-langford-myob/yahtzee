@@ -27,9 +27,14 @@ public class GameTest {
     }
     @Test
     public void shouldReturn21FromChance() {
-        int actual = game.calculateScore("4,5,5,6,1", "chance");
+        int actual = game.calculateScore("4,5,5,6,1", "Chance");
         int expected = 21;
 
         assertEquals(expected, actual);
+    }
+    @Test
+    public void shouldReturn50onYahtzeeWithAllDieAs1s(){
+        int actual = game.calculateScore("1,1,1,1,1", "Yahtzee");
+        int expected = 50;
     }
 }

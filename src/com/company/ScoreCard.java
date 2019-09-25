@@ -1,20 +1,34 @@
 package com.company;
 
+import java.util.stream.IntStream;
+
 public class ScoreCard {
-private int ones;
-private int twos;
-private int threes;
-private int fours;
-private int fives;
-private int sixes;
-private int threeOfaKind;
-private int fourOfaKind;
-private int fullHouse;
-private int smallStraight;
-private int largeStraight;
-private int yahtzee;
-private int chance;
-private int total;
+private int ones = -1;
+private int twos = -1;
+private int threes = -1;
+private int fours = -1;
+private int fives = -1;
+private int sixes = -1;
+private int threeOfaKind = -1;
+private int fourOfaKind = -1;
+private int fullHouse = -1;
+private int smallStraight = -1;
+private int largeStraight = -1;
+private int yahtzee = -1;
+private int chance = -1;
+private int total = -1;
+
+public boolean checkIfChanceUsed(){
+    if (chance<0) {
+        return true;
+    }else {
+
+        return false;
+    }
+}
+public int calculateChance(int[] roll) {
+    return IntStream.of(roll).sum();
+}
 
     public ScoreCard() {
 
