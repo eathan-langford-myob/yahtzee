@@ -39,4 +39,20 @@ public class GameTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void shouldReturn0onYahtzeeWithWrongCombination(){
+        int actual = game.calculateScore("1,1,1,2,1", "Yahtzee");
+        int expected = 0;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnTheSumOfTwoHighestMatchingDie(){
+        int actual = game.calculateScore("3,3,3,4,4", "pairs");
+        int expected = 8;
+
+        assertEquals(expected, actual);
+    }
 }

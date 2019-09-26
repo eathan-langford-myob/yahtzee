@@ -42,15 +42,9 @@ return -1;
 
 
 
-    private int calculateYahtzee(int[] roll) {
-       boolean allNumbersTheSame = Arrays.stream(roll).distinct().count() == 1;
-       int sum = -1;
-       if (allNumbersTheSame){
-           return 50;
-       }else {
-           return 0;
-       }
-    }
+private int calculateYahtzee(int[] roll) {
+   return Arrays.stream(roll).distinct().count() == 1 ? 50 : 0;
+}
 
     public int calculateChance(int[] roll) {
     return IntStream.of(roll).sum();
@@ -64,6 +58,8 @@ return -1;
         categories.put("fours",-1);
         categories.put("fives",-1);
         categories.put("sixes",-1);
+        categories.put("pairs",-1);
+        categories.put("twoPairs",-1);
         categories.put("threeOfaKind",-1);
         categories.put("fourOfaKind",-1);
         categories.put("fullHouse",-1);
