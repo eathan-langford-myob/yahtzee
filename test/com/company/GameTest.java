@@ -36,5 +36,7 @@ public class GameTest {
     public void shouldReturn50onYahtzeeWithAllDieAs1s(){
         int actual = game.calculateScore("1,1,1,1,1", "Yahtzee");
         int expected = 50;
+
+        assertEquals(expected, actual);
     }
 }

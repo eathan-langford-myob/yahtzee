@@ -7,18 +7,14 @@ public class Game {
 
     public static ScoreCard scoreCard = new ScoreCard();
 
-    public int calculateScore (String roll, String category){
-        int sum = -1;
-        int[] finalRoll = Arrays.stream(roll.split(",")).mapToInt(Integer::parseInt).toArray();
+    public int[] splitTotalRollToSingleDie(String roll){
+        return Arrays.stream(roll.split(",")).mapToInt(Integer::parseInt).toArray();
+    }
 
-        switch(category) {
-            case "chance":
-                sum = scoreCard.checkIfChanceUsed()?scoreCard.calculateChance(finalRoll):scoreCard.getChance();
-            default:{
-
-            }
-        }
-        return sum;
+    public int calculateScore (String roll, String category) {
+        String lowercaseCategory = category.toLowerCase();
+        int[] splitRoll = splitTotalRollToSingleDie(roll);
+        return scoreCard.checkIfAvailable(lowercaseCategory) ? scoreCard.calculate(splitRoll, lowercaseCategory) : scoreCard.getCategories().get(lowercaseCategory);
     }
 
     public static void main(String[] args) {
